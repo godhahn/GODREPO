@@ -1,7 +1,9 @@
 import streamlit as st
+import pandas as pd
 from groq import Groq
 
 client = Groq(api_key = "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")
+dataset = pd.read_csv("Game_One_Dataset.csv")
 
 ##########################################################################################
 
@@ -36,3 +38,5 @@ description = st.text_input("Describe Yi Hahn Pang in One Sentence:")
 if description:
     hint = get_hint(description)
     st.write(hint)
+
+##########################################################################################
