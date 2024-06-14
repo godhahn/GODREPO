@@ -15,7 +15,7 @@ def get_hint(description):
     }
     messageLog = [userPrompt]
     try:
-        chat_completion = client.chat.completions.create(messages=messageLog, model="llama3-70b-8192", temperature=0.1)
+        chat_completion = client.chat.completions.create(messages = messageLog, model = "llama3-70b-8192", temperature = 0.1)
     except:
         return ["N/A"]
     hint = chat_completion.choices[0].message.content
