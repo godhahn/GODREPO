@@ -3,7 +3,7 @@ import pandas as pd
 from groq import Groq
 
 client = Groq(api_key = "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")
-dataset = pd.read_csv("data\Game_One_Dataset.csv")
+dataset = pd.read_csv("Game_One_Dataset.csv")
 
 ##########################################################################################
 
@@ -26,7 +26,7 @@ def get_hint(description):
 ##########################################################################################
 
 st.title("Description Game")
-st.audio("data\Gaming_Music.mp3", format = "mp3", autoplay = True, loop = True)
+st.audio("Gaming_Music.mp3", format = "mp3", autoplay = True, loop = True)
 
 name = st.text_input("Enter Your Name:")
 
