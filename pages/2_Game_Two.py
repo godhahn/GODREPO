@@ -2,17 +2,16 @@ import streamlit as st
 import pandas as pd
 from groq import Groq
 
-client = Groq(api_key = "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")
+client = Groq(api_key="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")
 
 ##########################################################################################################################################################################################
 
 st.title("Selection Game")
-st.audio("Gaming_Music.mp3", format = "mp3", autoplay = True, loop = True)
+st.audio("Gaming_Music.mp3", format="audio/mp3", autoplay=True, loop=True)
 
-# Function to generate response from GPT
 def generate_response(prompt):
-    response = client.chat.completions.create(model="llama3-70b-8192", messages=[prompt])
-    return response.choices[0].text.strip()
+    response = client.chat.completions.create(model="llama3-70b-8192", messages=[{"role": "user", "content": prompt}])
+    return response.choices[0].message["content"].strip()
 
 # Options for the game
 options = ["Option 1: Ask for a joke", "Option 2: Ask for a motivational quote", "Option 3: Ask for a random fact"]
@@ -31,7 +30,4 @@ elif selection == options[2]:
 # Button to generate response
 if st.button("Get Response"):
     response = generate_response(prompt)
-    if response.choices:
-        st.write(response.choices[0].text.strip())
-    else:
-        st.write("No response generated.")
+    st.write(response)
