@@ -37,5 +37,5 @@ elif selection == options[2]:
 
 # Button to generate response
 if st.button("Get Response"):
-    response = generate_response(response)
+    response = generate_response(selection)
     st.write(response)
