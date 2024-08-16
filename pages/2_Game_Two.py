@@ -10,8 +10,20 @@ st.title("Selection Game")
 st.audio("Gaming_Music.mp3", format="audio/mp3", autoplay=True, loop=True)
 
 def generate_response(prompt):
-    response = client.chat.completions.create(model="llama3-70b-8192", messages=[{"role": "user", "content": prompt}])
-    return response.choices[0].message["content"].strip()
+    userPrompt = {
+        "role": "user",
+        "content": prompt
+    }
+    messageLog = [userPrompt]
+    try:
+        chat_completion = client.chat.completions.create(
+            messages=messageLog,
+            model="llama3-70b-8192",
+            temperature=0.5
+        )
+    except Exception as e:
+        return "N/A"
+    return chat_completion.choices[0].message["content"].strip()
 
 # Options for the game
 options = ["Option 1: Ask for a joke", "Option 2: Ask for a motivational quote", "Option 3: Ask for a random fact"]
