@@ -9,7 +9,7 @@ client = Groq(api_key="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"
 st.title("Selection Game")
 st.audio("Gaming_Music.mp3", format="audio/mp3", autoplay=True, loop=True)
 
-def get_response(prompt):
+def generate_response(prompt):
     userPrompt = {
         "role": "user",
         "content": f"Given the following prompt: {prompt}, generate response."
