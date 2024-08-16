@@ -9,25 +9,17 @@ client = Groq(api_key="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"
 st.title("Selection Game")
 st.audio("Gaming_Music.mp3", format="audio/mp3", autoplay=True, loop=True)
 
-def generate_response(prompt):
+def get_response(prompt):
     userPrompt = {
         "role": "user",
-        "content": prompt
+        "content": f"Given the following prompt: {prompt}, generate response."
     }
     messageLog = [userPrompt]
     try:
-        chat_completion = client.chat.completions.create(
-            messages=messageLog,
-            model="llama3-70b-8192",
-            temperature=0.5
-        )
-        # Extract and return the content of the first choice
-        return chat_completion.choices[0].message["content"].strip()
-    except Exception as e:
-        # Print the exception for debugging purposes
-        print(f"Error: {e}")
-        # Handle errors and return "N/A" if an exception occurs
-        return "N/A"
+        chat_completion = client.chat.completions.create(messages = messageLog, model = "llama3-70b-8192", temperature = 0.5)
+    except:
+        return ["N/A"]
+    return chat_completion.choices[0].message.content
 
 # Options for the game
 options = ["Option 1: Ask for a joke", "Option 2: Ask for a motivational quote", "Option 3: Ask for a random fact"]
@@ -45,5 +37,5 @@ elif selection == options[2]:
 
 # Button to generate response
 if st.button("Get Response"):
-    response = generate_response(prompt)
+    response = generate_response(options)
     st.write(response)
