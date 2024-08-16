@@ -21,9 +21,13 @@ def generate_response(prompt):
             model="llama3-70b-8192",
             temperature=0.5
         )
+        # Extract and return the content of the first choice
+        return chat_completion.choices[0].message["content"].strip()
     except Exception as e:
+        # Print the exception for debugging purposes
+        print(f"Error: {e}")
+        # Handle errors and return "N/A" if an exception occurs
         return "N/A"
-    return chat_completion.choices[0].message["content"].strip()
 
 # Options for the game
 options = ["Option 1: Ask for a joke", "Option 2: Ask for a motivational quote", "Option 3: Ask for a random fact"]
