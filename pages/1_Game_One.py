@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 from groq import Groq
 
-client = Groq(api_key = "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")
+client = Groq(api_key = "")
 dataset = pd.read_csv("Game_One_Dataset.csv")
 
 ##########################################################################################################################################################################################
