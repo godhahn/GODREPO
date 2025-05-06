@@ -23,8 +23,6 @@ An AI-enhanced productivity tool that functions like a digital sticky note wall.
 #### Use Case
 Ideal for planning, prioritizing, and organizing personal or work tasks with smart suggestions.
 
----
-
 ### 2. Vibe Checker AI
 
 A fun app that analyzes the "vibe" of a user-submitted sentence.
