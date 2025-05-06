@@ -1,11 +1,10 @@
 import streamlit as st
 import pandas as pd
+import json
 from groq import Groq
 
-client = Groq(api_key = "")
-dataset = pd.read_csv("Game_One_Dataset.csv")
-
-##########################################################################################################################################################################################
+client = Groq(api_key = "KEY")
+dataset = pd.read_csv("misc\vibe_checker_ai_data.csv")
 
 def get_nature(description):
     userPrompt = {
@@ -19,16 +18,14 @@ def get_nature(description):
         return ["N/A"]
     return chat_completion.choices[0].message.content
 
-##########################################################################################################################################################################################
-
-st.title("Description Game")
-st.audio("Gaming_Music.mp3", format = "mp3", autoplay = True, loop = True)
+st.title("Vibe Checker AI")
+st.audio("misc\music.mp3", format = "mp3", autoplay = True, loop = True)
 
 name = st.text_input("Enter Your Name:")
 
 if name:
     st.write(f"Hello {name}!")
-    st.write("Let's play a Description Game!")
+    st.write("Let's do a Vibe Check!")
     
 description = st.text_input("Describe Yi Hahn in One Sentence:")
 
@@ -45,5 +42,3 @@ if description:
         random_comment = positive_comments.sample().values[0]
         st.write(random_comment)
         st.write("Applause!")
-
-##########################################################################################################################################################################################

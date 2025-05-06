@@ -1,27 +1,58 @@
-# GODREPO
+# AI Playground: Fun Streamlit WebApps with Groq + LLaMA
 
-**GODREPO** is a personal repository where I experiment and develop small projects during downtime. These mini-apps are built using **Python** and **Streamlit**, and many integrate with the **Groq API** and **LLaMA models** for intelligent interaction.
+## Project Overview
 
-Each app is designed to be **interactive**, **fun**, and **user-friendly**, even for users with minimal technical background.
+This repository is a collection of interactive and experimental AI web applications built using **Python**, **Streamlit**, and the **Groq API** (powered by **LLaMA models**). The goal is to have fun while building lightweight tools that demonstrate practical and playful uses of large language models (LLMs).
+
+Each app is designed to be engaging, intuitive, and user-friendly—even for users with minimal technical background.
+
+## Apps Overview (in `/pages`)
+
+### 1. Sticky Note AI
+
+An AI-enhanced productivity tool that functions like a digital sticky note wall.
+
+#### Features
+- Create and manage tasks with names, descriptions, and priority levels
+- AI-generated planning breakdown using Groq + LLaMA
+- Checkbox-like task points with strikethrough ability
+- Sort tasks by priority
+- Edit and update sticky notes
+- All tasks are saved in `misc/sticky_note_ai_tasks.json`
+
+#### Use Case
+Ideal for planning, prioritizing, and organizing personal or work tasks with smart suggestions.
 
 ---
 
-## Key Apps
+### 2. Vibe Checker AI
 
-1. **Game One: Description Game**  
-   Provide a description, and the AI will analyze it and give feedback based on its tone, content, or creativity.  
-   (Powered by LLaMA via the Groq API)
+A fun app that analyzes the "vibe" of a user-submitted sentence.
 
-2. **Game Two: Selection Game**  
-   Choose from a list of options, and the AI will perform a fun or entertaining task based on your selection.  
-   (Powered by LLaMA via the Groq API)
+#### Features
+- Enter any sentence (e.g., "Describe Yi Hahn in one sentence")
+- AI classifies it as **Positive** or **Negative**
+- Returns a random matching response from a curated CSV dataset
+- Background music plays during use
 
-3. **Game Three: Soccer Game**  
-   A simple penalty shootout game — no AI involved.  
-   - You choose a direction: **left**, **center**, or **right**.  
-   - The goalkeeper (random logic) also chooses a direction.  
-   - You score if your choice doesn't match the goalkeeper's!
+#### Use Case
+Great for mood checks, icebreakers, or just having fun with AI interactions.
 
----
+## Repository Contents
 
-Feel free to explore the code, contribute, or open an issue if you encounter any challenges or have suggestions!
+- `/pages`: Contains Streamlit app files
+- `/misc`: Contains:
+  - `sticky_note_ai_tasks.json`: Sticky Note AI saved tasks
+  - `vibe_checker_ai_data.csv`: Response data for Vibe Checker AI
+  - `music.mp3`: Background audio for Vibe Checker AI
+- `main.py`: Entry point for launching the Streamlit app
+
+## Getting Started
+
+To run in Streamlit Cloud, simply deploy your app on [Streamlit Cloud](https://share.streamlit.io/).
+
+To run the apps locally:
+
+```bash
+pip install streamlit groq pandas
+streamlit run main.py
